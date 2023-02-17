@@ -507,6 +507,7 @@ export class YargsParser {
       const nargsCount = checkAllAliases(key, flags.nargs)
 
       if (checkAllAliases(key, flags.bools) && !(/^(true|false)$/.test(next))) {
+        // @ts-ignore
         argsToSet.push(true)
       } else if (isUndefined(next) ||
           (isUndefined(argAfterEqualSign) && /^-/.test(next) && !negative.test(next) && !isUnknownOptionAsArg(next))) {
@@ -514,11 +515,13 @@ export class YargsParser {
         // set user default value, if available
         if (defaults[key] !== undefined) {
           const defVal = defaults[key]
+          // @ts-ignore
           argsToSet = Array.isArray(defVal) ? defVal : [defVal]
         }
       } else {
         // value in --option=value is eaten as is
         if (!isUndefined(argAfterEqualSign)) {
+          // @ts-ignore
           argsToSet.push(processValue(key, argAfterEqualSign, true))
         }
         for (let ii = i + 1; ii < args.length; ii++) {
@@ -527,6 +530,7 @@ export class YargsParser {
           next = args[ii]
           if (/^-/.test(next) && !negative.test(next) && !isUnknownOptionAsArg(next)) break
           i = ii
+          // @ts-ignore
           argsToSet.push(processValue(key, next, inputIsString))
         }
       }
@@ -668,15 +672,18 @@ export class YargsParser {
 
             if (typeof resolveConfig === 'function') {
               try {
+                // @ts-ignore
                 config = resolveConfig(resolvedConfigPath)
               } catch (e) {
                 config = e
               }
+              // @ts-ignore
               if (config instanceof Error) {
                 error = config
                 return
               }
             } else {
+              // @ts-ignore
               config = mixin.require(resolvedConfigPath)
             }
 
