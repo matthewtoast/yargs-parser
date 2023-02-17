@@ -27,11 +27,7 @@
     "pretest:typescript": "npm run pretest",
     "test:typescript": "c8 mocha ./build/test/typescript/*.js",
     "coverage": "c8 report --check-coverage",
-    "precompile": "rimraf build",
-    "compile": "tsc",
-    "postcompile": "npm run build:cjs",
-    "build:cjs": "rollup -c",
-    "prepare": "npm run compile"
+    "build:cjs": "rollup -c"
   },
   "repository": {
     "type": "git",
