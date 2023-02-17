@@ -3,20 +3,6 @@
   "version": "21.1.1",
   "description": "the mighty option parser used by yargs",
   "main": "build/index.cjs",
-  "exports": {
-    ".": [
-      {
-        "import": "./build/lib/index.js",
-        "require": "./build/index.cjs"
-      },
-      "./build/index.cjs"
-    ],
-    "./browser": [
-      "./browser.js"
-    ]
-  },
-  "type": "module",
-  "module": "./build/lib/index.js",
   "scripts": {
     "check": "standardx '**/*.ts' && standardx '**/*.js' && standardx '**/*.cjs'",
     "fix": "standardx --fix '**/*.ts' && standardx --fix '**/*.js' && standardx --fix '**/*.cjs'",
