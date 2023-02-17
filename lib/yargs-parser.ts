@@ -686,7 +686,7 @@ export class YargsParser {
               // @ts-ignore
               config = mixin.require(resolvedConfigPath)
             }
-
+            // @ts-ignore
             setConfigObject(config)
           } catch (ex: any) {
             // Deno will receive a PermissionDenied error if an attempt is
